@@ -46,9 +46,6 @@ Route::prefix('users')->group(function () {
     Route::delete('delete/{id}', [UserController::class, 'delete']);
 });
 Route::prefix('auth')->group(function () {
-    Route::get('', [AuthController::class, 'index']);
-    Route::post('', [AuthController::class, 'create']);
-    Route::get('{id}', [AuthController::class, 'show']);
-    Route::put('update/{id}', [AuthController::class, 'update']);
-    Route::delete('delete/{id}', [AuthController::class, 'delete']);
+    Route::post('register', [AuthController::class, 'register']);
+    Route::post('login', [AuthController::class, 'login']);
 });

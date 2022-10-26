@@ -37,11 +37,15 @@ function restful_error($message = null, $code = 404)
 function restful_exception(Exception $exception)
 {
 
+//    dd($exception->getMessage());
     if ($exception instanceof ValidationException) {
         return restful_error($exception->validator->errors()->first());
     } elseif ($exception instanceof ExecuteException) {
         return restful_error($exception->getMessage(), $exception->getCode());
-    } else {
+    }elseif ($exception instanceof ErrorException){
+        return restful_error($exception->getMessage());
+    }
+    else {
         if (!config('app.debug')) {
             Log::error($exception);
         }
