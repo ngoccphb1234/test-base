@@ -42,8 +42,9 @@ class RegisterRequest extends FormRequest
         ];
     }
 
-protected function failedValidation(Validator $validator)
-{
-    throw new HttpResponseException(restful_exception(new ValidationException($validator)));
-}
+//protected function failedValidation(Validator $validator)
+//{
+//    dd(1);
+//    throw new HttpResponseException(restful_exception(new ValidationException($validator)));
+//}
 }

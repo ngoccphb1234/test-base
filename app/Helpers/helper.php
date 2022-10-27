@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 
 if (!function_exists("get_meta")) {
-    function restful_success($data, $is_multi = false, $meta = null, $message = null)
+    function restful_success($data, $code, $is_multi = false, $meta = null, $message = null)
     {
         $res = [
             "status" => 1,
@@ -16,6 +16,7 @@ if (!function_exists("get_meta")) {
         } else {
             $res['data'] = $data;
         }
+        $res['code'] = $code;
 
         if ($meta) {
             $res['meta'] = $meta;
